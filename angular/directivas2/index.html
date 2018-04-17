@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="tosrc">
+<head>
+	<title>ng-src y ng-cloak</title>
+	<meta charset="utf8">
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/jquery-latest.min.js"></script>
+	<script src="../js/autocomplete-jquery-ui.js"></script>
+	<script src="controller.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="/includes/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/autocomplete-jquery-ui.structure.css">
+	
+	<script type="text/javascript" src="/includes/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/includes/js/comun.js"></script>
+	<script type="text/javascript" src="/includes/js/general.js"></script>
+	<script type="text/javascript">$(document).ready(function() { menu(); });</script>
+
+	<style type="text/css">
+		.circular{
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body ng-controller="ToSrcController">
+	<div id="nav_principal"></div>
+	<div class="col-lg-2"></div><div class="col-lg-8" id="contenedor_errores"></div><div class="col-lg-2"></div>
+	<div id="contenedor_general">
+		<input type="text" my-autocomplete="repositorio" placeholder="Buscar Repositorios"></input>
+
+	</div>
+
+	<ul ng-cloak>
+		<div class="row" ng-repeat="repos in repositorio" ng-hide="main_repo && main_repo!=repos.name">
+
+			<div class="col-lg-2">
+				<li ng-cloak><h2 ng-cloak>{{repos.owner.login}} </h2></li>
+			</div>
+			<div class="col-lg-1">
+				
+				<div class="circular" back-img="{{repos.owner.avatar_url}}"></div>
+			</div>
+			<div class="col-lg-8"> </div>
+			<div class="col-lg-12"><p ng-cloak>{{repos.name}}</p></div>
+		</div>
+		
+		
+	</ul>
+	
+	
+
+</body>
+</html>

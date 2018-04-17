@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+<head>
+	<meta charset="utf-8">
+	<title>Filtros</title>
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/angular-local-storage.min.js"></script>
+	<script src="controller.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/includes/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="/includes/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/includes/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/includes/js/comun.js"></script>
+	<script type="text/javascript" src="/includes/js/general.js"></script>
+	<script type="text/javascript">$(document).ready(function() { menu(); });</script>
+</head>
+<body ng-controller="FiltersController">
+	<div id="nav_principal"></div>
+	<div class="col-lg-2"></div><div class="col-lg-8" id="contenedor_errores"></div><div class="col-lg-2"></div>
+	<div id="contenedor_general"></div>
+
+
+	{{ mi_html | removerHtml }}
+
+	<p>
+		{{ arreglo | json }}
+	</p>
+
+	{{ costo | currency:'Bs. ':2 }}
+</body>
+</html>

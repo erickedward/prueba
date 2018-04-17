@@ -1,0 +1,81 @@
+<nav class="navbar navbar-inverse" role="navigation">
+	<!-- El logotipo y el icono que despliega el menú se agrupan para mostrarlos mejor en los dispositivos móviles -->
+  	<div class="navbar-header">
+    	<span class="navbar-brand"><strong>Pagina de Pruebas</strong></span>
+  	</div>
+ 
+  	<!-- Agrupar los enlaces de navegación, los formularios y cualquier otro elemento que se pueda ocultar al minimizar la barra -->
+  	<div class="collapse navbar-collapse navbar-ex1-collapse">
+    	<ul class="nav navbar-nav">
+      		<!--<li class="active"><a href="#">Inicio</a></li>-->
+	      	<li class="dropdown">
+	        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Bootstrap 3 <b class="caret"></b></a>
+	        	<ul class="dropdown-menu">
+	          		<li><a href="#" onclick="enviar_ajax('/includes/vistas/barras_navegacion.html','contenedor_general');">Barra de Navegación</a></li>
+	          		<li><a href="#" onclick="enviar_ajax('/includes/vistas/nav_pestana.html','contenedor_general');">Navegación con pestañas</a></li>
+	        	</ul>
+	      	</li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <!--<li class="active"><a href="#">Inicio</a></li>-->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bootstrap 4 <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                    <li><a href="/bootstrap4/modal.html">Modal</a></li>
+              </ul>
+            </li>
+      </ul>
+      <ul class="nav navbar-nav">
+          <!--<li class="active"><a href="#">Inicio</a></li>-->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asignacion <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="enviar_ajax('/asignacion/anderson.php','contenedor_general');">Pica Notas</a></li>
+                <li><a href="#" onclick="enviar_ajax('/asignacion/nuevos_25k50k.php','contenedor_general');">Nuevos 25k y 50k</a></li>
+            </ul>
+          </li>
+      </ul>
+      <ul class="nav navbar-nav">
+          <!--<li class="active"><a href="#">Inicio</a></li>-->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SMS <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="enviar_ajax('/sms/index.html','contenedor_general');">Crear archivo para envio SMS Eduard Blanco</a></li>
+            </ul>
+          </li>
+      </ul>
+      <ul class="nav navbar-nav">
+          <!--<li class="active"><a href="#">Inicio</a></li>-->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Angular <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="/angular/index.html">Practica 1 (Sincronización HTML -> Angular)</a></li>
+                <li><a href="/angular/hola_controller/index.html">Practica 2 (Lista de Comentarios)</a></li>
+                <li><a href="/angular/http/index.html">Practica 3 (Ajax)</a></li>
+                <li><a href="/angular/todolist/index.html">Practica 4 (Servicios To do list)</a></li>
+                <li><a href="/angular/filtros/index.html">Practica 5 (Filtros)</a></li>
+                <li><a href="/angular/ng_show/index.html">Practica 6 (ng-show y ng-hide)</a></li>
+                <li><a href="/angular/variables_globales/index.html">Practica 7 (Variables Globales y Herencias)</a></li>
+                <li><a href="/angular/factories/index.html">Practica 8 (Servicios Factories)</a></li>
+                <li><a href="/angular/services/index.html">Practica 9 (Servicios Services)</a></li>
+                <li><a href="/angular/ngevents/index.html">Practica 10 (ngevents y ngclass)</a></li>
+                <li><a href="/angular/ngsrc/index.html">Practica 11 (ng-src y ng-cloak)</a></li>
+                <li><a href="/angular/directivas1/index.html">Practica 12 (Crear Directivas I)</a></li>
+                <li><a href="/angular/directivas2/index.html">Practica 13 (Crear Directivas II)</a></li>
+            </ul>
+          </li>
+      </ul>
+     	<ul class="nav navbar-nav navbar-right">
+      		<li><a href="#">Enlace</a></li>
+      		<li class="dropdown">
+        		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Erick Ramirez<b class="caret"></b></a>
+		    	<ul class="dropdown-menu">
+		      		<li><a href="#">Cambiar Contraseña</a></li>
+		      		<li><a href="#">Datos de Usuario</a></li>
+		      		<li class="divider"></li>
+		      		<li><a href="#">Cerrar Sesión</a></li>
+		    	</ul>
+      		</li>
+    	</ul>
+  	</div>
+</nav>

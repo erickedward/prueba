@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="consultarEmpleado" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://localhost.asistencia.opsu.gob.ve/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://localhost.asistencia.opsu.gob.ve/">
+
+	<types>
+		<xsd:schema targetNamespace="http://webservices.opsu.gob.ve/empleados">
+			<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+			<xsd:complexType name="Estructura">
+			<xsd:all>
+				<xsd:element name="codigo_empleado" type="xsd:string"/>
+				<xsd:element name="codigo_personal" type="xsd:string"/>
+			    <xsd:element name="codigo_nomina" type="xsd:string"/>
+			    <xsd:element name="nombre" type="xsd:string"/>
+			    <xsd:element name="cargo" type="xsd:string"/>
+			    <xsd:element name="fecha_ingreso" type="xsd:string"/>
+			    <xsd:element name="sexo" type="xsd:string"/>
+			    <xsd:element name="ubicacion" type="xsd:string"/>
+			    <xsd:element name="cod_unidad" type="xsd:string"/>
+			    <xsd:element name="unidad" type="xsd:string"/>
+			    <xsd:element name="nombre_nomina" type="xsd:string"/>
+			    <xsd:element name="nombre_supervisor" type="xsd:string"/>
+			    <xsd:element name="cargo_supervisor" type="xsd:string"/>
+			    <xsd:element name="cedula_supervisor" type="xsd:string"/>
+			    <xsd:element name="correo_supervisor" type="xsd:string"/>
+			</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="ArregloDeEstructuras">
+				<xsd:complexContent>
+					<xsd:restriction base="SOAP-ENC:Array">
+					<xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:Estructura[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+		</xsd:schema>
+	</types>
+	
+	<!-- Servicio 1 -->
+
+	<message name="consultarEmpleadoRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarEmpleadoResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarEmpleadoPortType">
+		<operation name="consultarEmpleado">
+			<documentation>Consulta Empleados</documentation>
+			<input message="tns:consultarEmpleadoRequest"/>
+			<output message="tns:consultarEmpleadoResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarEmpleadoBinding" type="tns:consultarEmpleadoPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarEmpleado">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarEmpleado"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarEmpleadoService">
+	  <port name="consultarEmpleadoPort" binding="consultarEmpleadoBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/empleados/servicios.php"/>
+	  </port>
+	</service>
+	
+	<!-- Servicio 2 -->
+
+	<message name="consultarUbicacionRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarUbicacionResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarUbicacionPortType">
+		<operation name="consultarUbicacion">
+			<documentation>Consulta Ubicacion de Empleados</documentation>
+			<input message="tns:consultarUbicacionRequest"/>
+			<output message="tns:consultarUbicacionResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarUbicacionBinding" type="tns:consultarUbicacionPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarUbicacion">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarUbicacion"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarUbicacionService">
+	  <port name="consultarUbicacionPort" binding="consultarUbicacionBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/empleados/servicios.php"/>
+	  </port>
+	</service>
+
+	<!-- Servicio 3 -->
+
+	<message name="consultarEmpleadosSupervisorRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarEmpleadosSupervisorResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarEmpleadosSupervisorPortType">
+		<operation name="consultarEmpleadosSupervisor">
+			<documentation>Consulta de Empleados por Supervisor</documentation>
+			<input message="tns:consultarEmpleadosSupervisorRequest"/>
+			<output message="tns:consultarEmpleadosSupervisorResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarEmpleadosSupervisorBinding" type="tns:consultarEmpleadosSupervisorPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarEmpleadosSupervisor">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarEmpleadosSupervisor"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarEmpleadosSupervisorService">
+	  <port name="consultarEmpleadosSupervisorPort" binding="consultarEmpleadosSupervisorBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/empleados/servicios.php"/>
+	  </port>
+	</service>
+
+	<!-- Servicio 4 -->
+
+	<message name="consultarEmpleadosSupervisorAltRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarEmpleadosSupervisorAltResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarEmpleadosSupervisorAltPortType">
+		<operation name="consultarEmpleadosSupervisorAlt">
+			<documentation>Consulta de Empleados por Supervisor Alterno</documentation>
+			<input message="tns:consultarEmpleadosSupervisorAltRequest"/>
+			<output message="tns:consultarEmpleadosSupervisorAltResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarEmpleadosSupervisorAltBinding" type="tns:consultarEmpleadosSupervisorAltPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarEmpleadosSupervisorAlt">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarEmpleadosSupervisorAlt"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarEmpleadosSupervisorAltService">
+	  <port name="consultarEmpleadosSupervisorAltPort" binding="consultarEmpleadosSupervisorAltBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/empleados/servicios.php"/>
+	  </port>
+	</service>
+
+	<!-- Servicio 5 -->
+
+	<message name="consultarEmpleadosCodUbicacionRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarEmpleadosCodUbicacionResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarEmpleadosCodUbicacionPortType">
+		<operation name="consultarEmpleadosCodUbicacion">
+			<documentation>Consulta de Empleados por Codigo de Ubicacion</documentation>
+			<input message="tns:consultarEmpleadosCodUbicacionRequest"/>
+			<output message="tns:consultarEmpleadosCodUbicacionResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarEmpleadosCodUbicacionBinding" type="tns:consultarEmpleadosCodUbicacionPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarEmpleadosCodUbicacion">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarEmpleadosCodUbicacion"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarEmpleadosCodUbicacionService">
+	  <port name="consultarEmpleadosCodUbicacionPort" binding="consultarEmpleadosCodUbicacionBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/empleados/servicios.php"/>
+	  </port>
+	</service>
+
+	<!-- Servicio 6 -->
+
+	<message name="consultarEmpleadosCodUnidadRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarEmpleadosCodUnidadResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarEmpleadosCodUnidadPortType">
+		<operation name="consultarEmpleadosCodUnidad">
+			<documentation>Consulta de Empleados por Codigo de Unidad</documentation>
+			<input message="tns:consultarEmpleadosCodUnidadRequest"/>
+			<output message="tns:consultarEmpleadosCodUnidadResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarEmpleadosCodUnidadBinding" type="tns:consultarEmpleadosCodUnidadPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarEmpleadosCodUnidad">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarEmpleadosCodUnidad"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarEmpleadosCodUnidadService">
+	  <port name="consultarEmpleadosCodUnidadPort" binding="consultarEmpleadosCodUnidadBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/empleados/servicios.php"/>
+	  </port>
+	</service>
+
+	<!-- Servicio 7 -->
+
+	<message name="consultarEmpleadosSupervisorSEDRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarEmpleadosSupervisorSEDResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarEmpleadosSupervisorSEDPortType">
+		<operation name="consultarEmpleadosSupervisorSED">
+			<documentation>Consulta de Empleados por cedula de supervisor en el SED</documentation>
+			<input message="tns:consultarEmpleadosSupervisorSEDRequest"/>
+			<output message="tns:consultarEmpleadosSupervisorSEDResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarEmpleadosSupervisorSEDBinding" type="tns:consultarEmpleadosSupervisorSEDPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarEmpleadosSupervisorSED">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarEmpleadosSupervisorSED"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarEmpleadosSupervisorSEDService">
+	  <port name="consultarEmpleadosSupervisorSEDPort" binding="consultarEmpleadosSupervisorSEDBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/empleados/servicios.php"/>
+	  </port>
+	</service>
+
+	<!-- Servicio 8 -->
+
+	<message name="consultarDescripcionUnidadRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarDescripcionUnidadResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarDescripcionUnidadPortType">
+		<operation name="consultarDescripcionUnidad">
+			<documentation>Consulta descripcion de codigo por unidad</documentation>
+			<input message="tns:consultarDescripcionUnidadRequest"/>
+			<output message="tns:consultarDescripcionUnidadResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarDescripcionUnidadBinding" type="tns:consultarDescripcionUnidadPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarDescripcionUnidad">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarDescripcionUnidad"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarDescripcionUnidadService">
+	  <port name="consultarDescripcionUnidadPort" binding="consultarDescripcionUnidadBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/empleados/servicios.php"/>
+	  </port>
+	</service>
+
+	<!-- Servicio 9 -->
+
+	<message name="consultarDescripcionUbicacionRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarDescripcionUbicacionResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarDescripcionUbicacionPortType">
+		<operation name="consultarDescripcionUbicacion">
+			<documentation>Consulta descripcion de codigo por ubicacion</documentation>
+			<input message="tns:consultarDescripcionUbicacionRequest"/>
+			<output message="tns:consultarDescripcionUbicacionResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarDescripcionUbicacionBinding" type="tns:consultarDescripcionUbicacionPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarDescripcionUbicacion">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarDescripcionUbicacion"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarDescripcionUbicacionService">
+	  <port name="consultarDescripcionUbicacionPort" binding="consultarDescripcionUbicacionBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/empleados/servicios.php"/>
+	  </port>
+	</service>
+
+</definitions>

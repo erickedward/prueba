@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prueba Ajax</title>
+	<script type="text/javascript" src="/js/jquery-3.1.1.min.js" ></script>
+	
+</head>
+<body>
+
+prueba
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function(){ 
+		($('#resultado')) ? $('#resultado').remove():'';
+	 
+		  //Recuperar el atributo href del enlace actual
+		  //var href = $(this).attr('href');
+		  //alert(href);
+		  // crear un elemento para colocar la información
+		  var elem = $("<div id='resultado'>Resultado</div>");
+		 
+		  //Agregar el elemento después de la clase records_list
+		  elem.insertAfter($("#records_list"));
+		 
+		 // cargar mediante una llamada ajax la dirección que tiene href dentro de resultado 
+		 alert($('#resultado').load('prueba2'));
+	});
+</script>

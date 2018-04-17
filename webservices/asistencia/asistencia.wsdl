@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="consultarPermisos" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://localhost.asistencia.opsu.gob.ve/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://localhost.asistencia.opsu.gob.ve/">
+
+	<types>
+		<xsd:schema targetNamespace="http://webservices.opsu.gob.ve/asistencia">
+			<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+			<xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+			<xsd:complexType name="Estructura">
+			<xsd:all>
+				<xsd:element name="dias" type="xsd:string"/>
+			</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="ArregloDeEstructuras">
+				<xsd:complexContent>
+					<xsd:restriction base="SOAP-ENC:Array">
+					<xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:Estructura[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+		</xsd:schema>
+	</types>
+	
+	<!-- Servicio 1 -->
+
+	<message name="consultarPermisosRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarPermisosResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarPermisosPortType">
+		<operation name="consultarPermisos">
+			<documentation>Consulta Vacaciones Empleados</documentation>
+			<input message="tns:consultarPermisosRequest"/>
+			<output message="tns:consultarPermisosResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarPermisosBinding" type="tns:consultarPermisosPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarPermisos">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarPermisos"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarPermisosService">
+	  <port name="consultarPermisosPort" binding="consultarPermisosBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/asistencia/servicios.php"/>
+	  </port>
+	</service>
+
+	<!-- Servicio 2 -->
+
+	<message name="consultarTipoSolicitudRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarTipoSolicitudResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarTipoSolicitudPortType">
+		<operation name="consultarTipoSolicitud">
+			<documentation>Consulta Vacaciones Empleados</documentation>
+			<input message="tns:consultarTipoSolicitudRequest"/>
+			<output message="tns:consultarTipoSolicitudResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarTipoSolicitudBinding" type="tns:consultarTipoSolicitudPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarTipoSolicitud">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarTipoSolicitud"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarTipoSolicitudService">
+	  <port name="consultarTipoSolicitudPort" binding="consultarTipoSolicitudBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/asistencia/servicios.php"/>
+	  </port>
+	</service>
+
+	<!-- Servicio 3 -->
+
+	<message name="consultarTotalPermisosRequest">
+	  <part name="numero" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<message name="consultarTotalPermisosResponse">
+	  <part name="return" type="tns:ArregloDeEstructuras"/>
+	</message>
+
+	<portType name="consultarTotalPermisosPortType">
+		<operation name="consultarTotalPermisos">
+			<documentation>Consulta Vacaciones Empleados</documentation>
+			<input message="tns:consultarTotalPermisosRequest"/>
+			<output message="tns:consultarTotalPermisosResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="consultarTotalPermisosBinding" type="tns:consultarTotalPermisosPortType">
+	  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+	  <operation name="consultarTotalPermisos">
+	    <soap:operation soapAction="urn:xmethods-delayed-quotes#consultarTotalPermisos"/>
+	    <input>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </input>
+	    <output>
+	      <soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name="consultarTotalPermisosService">
+	  <port name="consultarTotalPermisosPort" binding="consultarTotalPermisosBinding">
+	    <soap:address location="http://webservices.opsu.gob.ve/asistencia/servicios.php"/>
+	  </port>
+	</service>
+
+</definitions>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="MyFirstApp">
+<head>
+	<title>Variables Globales</title>
+	<script src="../js/angular.min.js"></script>
+	<script src="controller.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/includes/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="/includes/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/includes/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/includes/js/comun.js"></script>
+	<script type="text/javascript" src="/includes/js/general.js"></script>
+	<script type="text/javascript">$(document).ready(function() { menu(); });</script>
+</head>
+<body ng-controller="FirstController">
+	<div id="nav_principal"></div>
+	<div class="col-lg-2"></div><div class="col-lg-8" id="contenedor_errores"></div><div class="col-lg-2"></div>
+	<div id="contenedor_general"></div>
+	
+
+<p><b>Valor del padre:</b> {{$parent.nombre}}</p>
+
+<p><b>Valor del hijo:</b> {{nombre}}</p>
+
+<div ng-controller="ChildController">
+	<p><b>Valor del padre:</b> {{$parent.$parent.nombre}}</p>
+	<p><b>Valor del hijo:</b> {{$parent.nombre}}</p>
+	<p><b>Valor del segundo nieto:</b> {{nombre}}</p>
+	<input type="text" ng-model="$parent.$parent.nombre">
+</div>
+
+</body>
+</html>

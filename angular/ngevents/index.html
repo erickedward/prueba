@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Eventos</title>
+	<script src="../js/angular.min.js"></script>
+	<style type="text/css">
+		.hover{
+			background-color: rgb(200,50,50);
+		}
+
+		.no-hover{
+			background-color: rgb(50,200,50);
+		}
+
+	</style>
+	<link rel="stylesheet" type="text/css" href="/includes/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="/includes/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/includes/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/includes/js/comun.js"></script>
+	<script type="text/javascript" src="/includes/js/general.js"></script>
+	<script type="text/javascript">$(document).ready(function() { menu(); });</script>
+</head>
+<body>
+	<div id="nav_principal"></div>
+	<div class="col-lg-2"></div><div class="col-lg-8" id="contenedor_errores"></div><div class="col-lg-2"></div>
+	<div id="contenedor_general"></div>
+
+	<button ng-click="bandera=!bandera" ng-class="{'hover':bandera, 'no-hover':!bandera}">Colocar bandera en {{!bandera}}</button>
+	<br><br><span ng-show="bandera">El valor de la variable es {{bandera}}</span>
+
+</body>
+</html>

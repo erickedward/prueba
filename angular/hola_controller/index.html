@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="MyFirstApp">
+<head>
+	<meta charset="utf-8">
+	<title>hola Controller</title>
+	<script src="../js/angular.min.js"></script>
+	<script src="controller.js"></script>
+
+	
+	<link rel="stylesheet" type="text/css" href="/includes/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="/includes/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/includes/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/includes/js/comun.js"></script>
+	<script type="text/javascript" src="/includes/js/general.js"></script>
+	<script type="text/javascript">$(document).ready(function() { menu(); });</script>
+</head>
+<body ng-controller="FirstController">
+	<div id="nav_principal"></div>
+	<div class="col-lg-2"></div><div class="col-lg-8" id="contenedor_errores"></div><div class="col-lg-2"></div>
+	<div id="contenedor_general"></div>
+
+
+	{{"Hola " + nombre}}
+	<br><br>
+	<input type="text" ng-model="nuevoComentario.comentario"></input>
+	<br><br>
+	<input type="text" ng-model="nuevoComentario.username"></input>
+	<br><br>
+	<button ng-click="agregarComentario()">Agregar Comentario</button>
+	<br><br><br>
+	<h3>Comentarios</h3>
+	<ul>
+		<li ng-repeat="comentario in comentarios">
+			{{comentario.comentario}} - <strong>{{comentario.username}}</strong>
+		</li>
+	</ul>
+</body>
+</html>

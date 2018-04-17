@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions 
+	name='autenticarLdap'
+	xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
+	xmlns:tns="http://webservices.opsu.gob.ve/" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	targetNamespace="http://webservices.opsu.gob.ve/">
+
+	<types>
+		<xsd:schema targetNamespace="http://webservices.opsu.gob.ve/ldap">
+			<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+			<xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+			<xsd:complexType name="Estructura">
+			<xsd:all>
+				<xsd:element name="usuario" type="xsd:string"/>
+				<xsd:element name="cedula" type="xsd:string"/>
+				<xsd:element name="nombre" type="xsd:string"/>
+				<xsd:element name="correo" type="xsd:string"/>
+				<xsd:element name="cargo" type="xsd:string"/>
+				<xsd:element name="unidad" type="xsd:string"/>
+				<xsd:element name="oficina" type="xsd:string"/>
+			</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="ArregloDeEstructuras">
+				<xsd:complexContent>
+					<xsd:restriction base="SOAP-ENC:Array">
+					<xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:Estructura[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+		</xsd:schema>
+	</types>
+
+	<!-- Servicio 1 -->
+
+	<message name='autenticarLdapRequest'>
+	  <part name='numero' type='tns:ArregloDeEstructuras'/>
+	</message>
+
+	<message name='autenticarLdapResponse'>
+	  <part name="return" type="tns:ArregloDeEstructuras" />
+	</message>
+
+	<portType name='autenticarLdapPortType'>
+		<operation name='autenticarLdap'>
+			<documentation>Autenticar Ldap</documentation>
+			<input message='tns:autenticarLdapRequest'/>
+			<output message='tns:autenticarLdapResponse'/>
+		</operation>
+	</portType>
+
+	<binding name='autenticarLdapBinding' type='tns:autenticarLdapPortType'>
+	  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+	  <operation name='autenticarLdap'>
+	    <soap:operation soapAction='urn:xmethods-delayed-quotes#autenticarLdap'/>
+	    <input>
+	      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+	    </input>
+	    <output>
+	      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name='autenticarLdapService'>
+	  <port name='autenticarLdapPort' binding='autenticarLdapBinding'>
+	    <soap:address location='http://webservices.opsu.gob.ve/ldap/servicio.php'/>
+	  </port>
+	</service>
+	
+	<!-- Servicio 2 -->
+	
+	<message name='consultarDatosPersonalesLdapRequest'>
+	  <part name='numero' type='tns:ArregloDeEstructuras'/>
+	</message>
+
+	<message name='consultarDatosPersonalesLdapResponse'>
+	  <part name="return" type="tns:ArregloDeEstructuras" />
+	</message>
+
+	<portType name='consultarDatosPersonalesLdapPortType'>
+		<operation name='consultarDatosPersonalesLdap'>
+			<documentation>Consultar Datos Personales LDAP</documentation>
+			<input message='tns:consultarDatosPersonalesLdapRequest'/>
+			<output message='tns:consultarDatosPersonalesLdapResponse'/>
+		</operation>
+	</portType>
+
+	<binding name='consultarDatosPersonalesLdapBinding' type='tns:consultarDatosPersonalesLdapPortType'>
+	  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+	  <operation name='consultarDatosPersonalesLdap'>
+	    <soap:operation soapAction='urn:xmethods-delayed-quotes#consultarDatosPersonalesLdap'/>
+	    <input>
+	      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+	    </input>
+	    <output>
+	      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+	    </output>
+	  </operation>
+	</binding>
+
+	<service name='consultarDatosPersonalesLdapService'>
+	  <port name='consultarDatosPersonalesLdapPort' binding='consultarDatosPersonalesLdapBinding'>
+	    <soap:address location='http://webservices.opsu.gob.ve/ldap/servicio.php'/>
+	  </port>
+	</service>
+
+</definitions>

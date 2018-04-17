@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Genrar Cheque</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<form name="Numeros" ACTION="../controller/ControllerConsultaDOMPDF.php?y=3" METHOD="POST">
+	Monto en Número:
+	<input TYPE="text" NAME="monto_num" SIZE="20">
+	Monto en Letra:
+	<input TYPE="text" NAME="monto_let" SIZE="20">
+	Nombre Beneficiario:
+	<input TYPE="text" NAME="nombre_ben" SIZE="20">
+	Ciudad:
+	<input TYPE="text" NAME="ciudad" SIZE="20">
+	Fecha:
+	<input TYPE="text" NAME="fecha" SIZE="20">
+	<br/><br/>
+	<input TYPE="submit" NAME="submit" value="Generar">
+
+</form>
+
+</body>
+</html>
+
+
+

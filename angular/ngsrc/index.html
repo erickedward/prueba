@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="tosrc">
+<head>
+	<title>ng-src y ng-cloak</title>
+	<meta charset="utf8">
+	<script src="../js/angular.min.js"></script>
+	<script src="controller.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="/includes/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="/includes/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/includes/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/includes/js/comun.js"></script>
+	<script type="text/javascript" src="/includes/js/general.js"></script>
+	<script type="text/javascript">$(document).ready(function() { menu(); });</script>
+</head>
+<body ng-controller="ToSrcController">
+	<div id="nav_principal"></div>
+	<div class="col-lg-2"></div><div class="col-lg-8" id="contenedor_errores"></div><div class="col-lg-2"></div>
+	<div id="contenedor_general"></div>
+
+	<ul ng-cloak>
+		<li ng-repeat="repos in repositorio">
+			<h2>{{repos.owner.id}} <img ng-src="{{repos.owner.avatar_url}}"></h2>
+			<p>{{repos.owner.organizations_url}}</p>
+		</li>
+	</ul>
+	
+	
+
+</body>
+</html>

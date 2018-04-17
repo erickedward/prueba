@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="MyFirstApp">
+<head>
+	<meta charset="utf-8">
+	<title>hola Controller</title>
+	<script src="../js/angular.min.js"></script>
+	<script src="controller.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="/includes/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="/includes/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/includes/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/includes/js/comun.js"></script>
+	<script type="text/javascript" src="/includes/js/general.js"></script>
+	<script type="text/javascript">$(document).ready(function() { menu(); });</script>
+</head>
+<body ng-controller="FirstController">
+	<div id="nav_principal"></div>
+	<div class="col-lg-2"></div><div class="col-lg-8" id="contenedor_errores"></div><div class="col-lg-2"></div>
+	<div id="contenedor_general"></div>
+	
+
+	<input type="text" ng-model="newPost.title"></input>
+	<br><br>
+	<textarea ng-model="newPost.body"></textarea><br><br>
+	<button ng-click="addPost()">Enviar</button>
+	<ul>
+		<li ng-repeat="post in posts">
+			<h2>{{post.title}}</h2>
+			<p>
+				{{post.body}}
+			</p>
+		</li>
+	</ul>
+</body>
+</html>

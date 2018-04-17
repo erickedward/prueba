@@ -1,0 +1,4 @@
+<?php
+	$num = "165489.54";
+	echo substr($num,strlen($num)-3,1);
+?>
