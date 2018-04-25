@@ -21,7 +21,7 @@
 const extra = require('./extra');
 extra.saludar();
 
-let curso = "nodeeeee";
+let curso = "nodeeeee   ";
 curso = "node.js";
 curso = "node.js tutos";
 debugger;
