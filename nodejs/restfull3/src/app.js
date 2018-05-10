@@ -1,3 +1,5 @@
+//API REST con Nodejs y Mysql
+//https://www.youtube.com/watch?v=-AoMh8lhgbs
 const express = require('express');
 const app = express();
 
