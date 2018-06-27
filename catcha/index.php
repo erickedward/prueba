@@ -12,11 +12,11 @@ function imagen_catcha(){
 		generar_codigo();
 		$img1 = "";
 		if($_SESSION["imag"]=="" || $_SESSION["imag"]=="0"){ 
-			$img1 = "includes/imagen.php?".date('hms');
+			$img1 = "/catcha/includes/imagen.php?".date('hms');
 			$_SESSION["imag"]="1";
 		}else{
 			$_SESSION["imag"]="0";
-			$img1 = "includes/imagen2.php?".date('hms');
+			$img1 = "/catcha/includes/imagen2.php?".date('hms');
 		}//end if
 		return $img1;
 	}//end function

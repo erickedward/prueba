@@ -66,6 +66,16 @@
             </ul>
           </li>
       </ul>
+      <ul class="nav navbar-nav">
+        <!--<li class="active"><a href="#">Inicio</a></li>-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Captcha <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+              <li><a href="#" onclick="enviar_ajax('/catcha/index.php','contenedor_general');">Captcha OPSU</a></li>
+              <li><a href="/recaptcha/index.php">reCaptcha de Google</a></li>
+          </ul>
+        </li>
+        </ul>
      	<ul class="nav navbar-nav navbar-right">
       		<li><a href="#">Enlace</a></li>
       		<li class="dropdown">
