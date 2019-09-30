@@ -1,0 +1,46 @@
+graph LR
+  classDef http fill:#f9f;
+  classDef ok fill:#0a0;
+  in(Initial Login Request)
+  hasBody{Request has body?}
+  hasPid{Request has processId?}
+  hasAid{Request has authId?}
+  userTypeValid{Request has valid user type?}
+  hasDeviceToken{Request has valid device token?}
+  authOK{Authenticate Operation OK?}
+  400[400 Bad Request]
+  403[403 Forbidden]
+  401[401 Unauthorized]
+  200[200 OK]
+  412[412 Precondition Failed]
+  class in ok
+  class 400 http
+  class 403 http
+  class 401 http
+  class 200 ok
+  class 412 http
+  performExtraAuth[Perform extra authentication]
+  updateData[Update User Data]
+  integration{Integration Call Success?}
+  outdatedCredentials{Has outdated credentials?}
+  in --> hasBody
+  hasBody -- no --> hasPid
+  hasBody -- yes --> userTypeValid
+  userTypeValid -- no --> 400
+  userTypeValid -- yes --> hasDeviceToken
+  hasPid -- no --> hasAid
+  hasAid -- no --> 400
+  hasDeviceToken -- no --> authOK
+  authOK -- no --> 403
+  403 -- yes --> performExtraAuth
+  performExtraAuth -- retry --> hasBody
+  authOK -- yes --> integration
+  hasDeviceToken -- yes --> integration
+  integration -- no --> 401
+  integration -- yes --> outdatedCredentials
+  outdatedCredentials -- no --> 200
+  outdatedCredentials -- yes --> 412
+  412 --> updateData
+  updateData -- retry --> hasBody
+  hasPid -- yes --> outdatedCredentials
+  hasAid -- yes --> authOK
