@@ -1,3 +1,5 @@
+[<< Volver al inicio](../../../)
+
 ### Pasos para internacionalizar un valor en un esquema ###
 
 1. Localizar el esquema con el valor a traducir. Por ejemplo, el valor del elemento _value_ del esquema _bar_ el cual se encuentra como subesquema de _foo_
@@ -34,3 +36,4 @@ es {
     (...)
 }
 ```
+[<< Volver al inicio](../../../)

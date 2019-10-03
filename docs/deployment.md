@@ -4,10 +4,10 @@
 
 ## Requerimientos: 📋
 
-* [intellij](https://www.jetbrains.com/idea/)
-* [Scala](http://scala-lang.org/download/install.html)
-* [SBT](http://www.scala-sbt.org/release/docs/Installing-sbt-on-Mac.html)
-* [Redis](http://redis.io/download)
+- [Intellij](https://www.jetbrains.com/idea/)
+- [Scala](http://scala-lang.org/download/install.html)
+- [SBT](http://www.scala-sbt.org/release/docs/Installing-sbt-on-Mac.html)
+- [Redis](http://redis.io/download)
 
 ## Instrucciones: 🔧
 
@@ -35,4 +35,4 @@ _El proyecto se compilará y finalmente se encontrará disponible en el puerto 9
 
 _Podrá hacer uso del swgger que el mismo proyecto provee en la dirección: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html?url=http://localhost:9000/api.json#/)_
 
-![Volver al inicio](running-screenshot.png)
+[<< Volver al inicio](../../../)
