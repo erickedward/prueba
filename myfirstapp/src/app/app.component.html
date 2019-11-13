@@ -1,0 +1,46 @@
+{{ users }}
+<ul>
+  <app-user *ngFor="let user of users" [nameUser]="user"></app-user>
+</ul>
+
+<br><br>
+<h3>Enviar Valores</h3>
+<hr>
+
+<div>
+  <p>Name: {{ name }}</p>
+  <p>Street: {{ adress.street }}</p>
+  <p>City: {{ adress.city }}</p>
+  <ul>
+    <li *ngFor="let hobby of hobbies">
+      {{ hobby }}
+    </li>
+  </ul>
+</div>
+
+<br><br>
+<h3>Eventos</h3>
+<hr>
+<form (submit)="addUser(newUser)">
+  <input type="text" #newUser>
+  <button>Enviar</button>
+</form>
+
+<ul>
+  <li *ngFor="let user of users">
+    {{user}} <button (click)="daleteUser(user)">X</button>
+  </li>
+</ul>
+
+<br><br>
+<h3>Eventos 2</h3>
+<hr>
+
+<div>
+  <form>
+    <input type="text" name="name" [(ngModel)]="name"><br><br>
+    <input type="text" name="age" [(ngModel)]="age">
+  </form><br>
+  Name: {{ name }}<br>
+  Age: {{ age }}
+</div>
