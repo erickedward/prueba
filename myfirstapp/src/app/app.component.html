@@ -1,4 +1,13 @@
-{{ users }}
+<ul>
+  <li>
+    <a routerLink="/">Home</a>
+  </li>
+  <li>
+    <a routerLink="/about">About</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+<!-- {{ users }}
 <ul>
   <app-user *ngFor="let user of users" [nameUser]="user"></app-user>
 </ul>
@@ -9,7 +18,7 @@
 
 <div>
   <p>Name: {{ name }}</p>
-  <p>Street: {{ adress.street }}</p>
+  <p>Street: {{ apostsdress.street }}</p>
   <p>City: {{ adress.city }}</p>
   <ul>
     <li *ngFor="let hobby of hobbies">
@@ -44,3 +53,13 @@
   Name: {{ name }}<br>
   Age: {{ age }}
 </div>
+
+<br><br>
+<h3>Servicio httpClient</h3>
+<hr>
+
+<div *ngFor="let post of posts">
+  <h3>{{ post.title }}</h3>
+  <p>{{ post.body }}</p>
+</div>
+-->

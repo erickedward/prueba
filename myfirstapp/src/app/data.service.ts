@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Post } from './Post';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class DataService {
     console.log('Mi aplicacion esta trabajando')
   }
   getData(){
-    return this.http.get('https://jsonplaceholder.typicode.com/posts')
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
 
   }
 }

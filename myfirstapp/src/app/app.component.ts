@@ -18,6 +18,7 @@ export class AppComponent {
     city:string;
   }
   hobbies:string[];
+  posts = [];
 
   constructor(private dateService:DataService) {
     this.age=28;
@@ -27,7 +28,9 @@ export class AppComponent {
     }
     this.hobbies = ['swinnig','read','write'];
 
-    this.dateService.getData
+    this.dateService.getData().subscribe(data => {
+      this.posts = data;
+    })
   }
 
   sayHello(){
@@ -49,5 +52,5 @@ export class AppComponent {
     }
   }
 
-  posts = [];
+  
 }
