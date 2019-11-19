@@ -1,6 +1,7 @@
-<hr>
-<h3>Soy un Componente (Producto)</h3>
-<h4>{{ product.title }}</h4>
-<img [src]="product.image" alt="" width="200px" height="200px">
-<strong>{{ product.price }}</strong>
-<hr>
+<h3 appHighligth>Soy un Componente (Producto)</h3>
+<h4>{{ product.title | uppercase }}</h4>
+<img [src]="product.image" alt="">
+<strong>{{ product.price | currency:'Bs.'}}</strong>
+<p>{{ product.descripcion | slice:0:10 }}...</p>
+<p> {{ today | date:'HH:mm' }} </p>
+<button (click)="addCart()">Agregar al Carrito</button>
