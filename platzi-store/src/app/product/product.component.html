@@ -5,3 +5,4 @@
 <p>{{ product.descripcion | slice:0:10 }}...</p>
 <p> {{ today | date:'HH:mm' }} </p>
 <button (click)="addCart()">Agregar al Carrito</button>
+<a [routerLink]="['/products',product.id]">Ver Detalle</a>
