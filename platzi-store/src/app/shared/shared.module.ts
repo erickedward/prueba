@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular//router';
 
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
 import { HighligthDirective } from './directives/highligth/highligth.directive';
@@ -13,7 +14,14 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     FooterComponent
   ],
+  exports: [
+    ExponentialPipe,
+    HighligthDirective,
+    HeaderComponent,
+    FooterComponent
+  ],
   imports: [
+    RouterModule,
     CommonModule
   ]
 })
